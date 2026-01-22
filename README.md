@@ -1,10 +1,14 @@
 # 🎓 ScholarStack
 **Bridging academic excellence and professional growth.**
 
-ScholarStack is a specialized productivity tool designed for Computer Science students to balance 6th-semester academics with freelance SME (Subject Matter Expert) work.
+ScholarStack is a specialized productivity tool designed for college students of any branch of study to balance semester academics with freelance SME (Subject Matter Expert) work.
 
 [**🚀 View Live Demo**]https://scholar-stack-pi.vercel.app/
 
+You can also download it as an App for using it in daily life by :-
+1. Visit the Vercel Link.
+2. Click **Add to Home Screen** on yoour iPhone/Android or the Install icon on Chrome.
+3. **ScholarStack** gets its own icon on your phone/desktop, opens in full screen (no browser bars), and works offline.
 ---
 
 ## ✨ Key Features
