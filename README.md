@@ -1,16 +1,35 @@
-# React + Vite
+# 🎓 ScholarStack
+**Bridging academic excellence and professional growth.**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ScholarStack is a specialized productivity tool designed for Computer Science students to balance 6th-semester academics with freelance SME (Subject Matter Expert) work.
 
-Currently, two official plugins are available:
+[**🚀 View Live Demo**]https://scholar-stack-pi.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Key Features
+* **SME Earnings Tracker:** Automatically calculates potential income based on completed tasks (₹150 per task).
+* **Smart Task Management:** Sort tasks by High, Medium, or Low priority.
+* **Data Persistence:** Uses Browser LocalStorage to ensure your tasks stay saved even after closing the tab.
+* **Responsive UI:** Fully styled with Tailwind CSS for a modern, professional look.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+### **Frontend**
+* **React.js:** Component-based UI architecture.
+* **Tailwind CSS:** Utility-first styling for responsive design.
+* **React Icons:** Scalable vector icons for enhanced UX.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### **Data & Persistence (Pseudo-Backend)**
+* **Browser LocalStorage API:** Synchronous data persistence for offline-first capability.
+* **JSON Serialization:** Managing complex state-to-string data transformation.
+* **UUID:** Cryptographically strong unique identifier generation for task mapping.
+
+### **Deployment & DevOps**
+* **Vercel:** Automated CI/CD pipeline for hosting.
+* **Git/GitHub:** Version control and repository management.
+
+## 🏗️ Local Setup
+1. Clone the repo: `git clone https://github.com/Sanjanadas45/ScholarStack.git`
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
