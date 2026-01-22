@@ -28,8 +28,3 @@ ScholarStack is a specialized productivity tool designed for Computer Science st
 ### **Deployment & DevOps**
 * **Vercel:** Automated CI/CD pipeline for hosting.
 * **Git/GitHub:** Version control and repository management.
-
-## 🏗️ Local Setup
-1. Clone the repo: `git clone https://github.com/Sanjanadas45/ScholarStack.git`
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
