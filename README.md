@@ -36,4 +36,8 @@ You can install ScholarStack directly on your device for daily use:
 * **Styling:** Tailwind CSS (Responsive Design, Transitions)
 * **Icons:** React Icons
 * **Build Tool:** Vite
+<<<<<<< HEAD
 * **Deployment:** Vercel
+=======
+* **Deployment:** Vercel
+>>>>>>> 8e9519fe49fa60d52e8bfe9e85f7a84827942f27
