@@ -1,34 +1,39 @@
-# 🎓 ScholarStack
-**Bridging academic excellence and professional growth.**
+# ScholarStack 🚀
+**A Gamified Productivity Dashboard for High-Performance Students**
 
-ScholarStack is a specialized productivity tool designed for college students of any branch of study to balance semester academics with freelance SME (Subject Matter Expert) work.
+ScholarStack is a modern task management application built with **React** and **Vite**. Unlike a standard to-do list, it uses a **Weighted XP (Experience Points) System** to help students prioritize high-impact tasks and visualize their academic progress in real-time. 
 
-[**🚀 View Live Demo**]https://scholar-stack-pi.vercel.app/
+Master your focus, one stack at a time.
 
-You can also download it as an App for using it in daily life by :-
-1. Visit the Vercel Link.
-2. Click **Add to Home Screen** on yoour iPhone/Android or the Install icon on Chrome.
-3. **ScholarStack** gets its own icon on your phone/desktop, opens in full screen (no browser bars), and works offline.
+---
+
+## 📱 Use it as an App
+You can install ScholarStack directly on your device for daily use:
+1. Visit: [scholar-stack-pi.vercel.app](https://scholar-stack-pi.vercel.app)
+2. Click **'Add to Home Screen'** on your iPhone/Android or the **Install** icon on Chrome's address bar.
+3. **ScholarStack** gets its own icon on your home screen, opens in full screen (no browser bars), and provides a native app experience.
+
 ---
 
 ## ✨ Key Features
-* **SME Earnings Tracker:** Automatically calculates potential income based on completed tasks (₹150 per task).
-* **Smart Task Management:** Sort tasks by High, Medium, or Low priority.
-* **Data Persistence:** Uses Browser LocalStorage to ensure your tasks stay saved even after closing the tab.
-* **Responsive UI:** Fully styled with Tailwind CSS for a modern, professional look.
+* **Gamified Task Management:** Earn XP based on task priority (High: 50XP, Medium: 30XP, Low: 10XP).
+* **Dynamic Analytics:** A real-time progress bar and dashboard that visualizes "Stack Completion" percentages.
+* **Smart Prioritization:** Categorize tasks to focus on what matters most.
+* **Persistent Storage:** Uses `localStorage` to ensure your tasks and XP stay saved even after a refresh.
+* **Responsive UI:** Clean, mobile-friendly design built with **Tailwind CSS**.
+
+---
+
+## 🚀 Technical Breakdown
+1. **Weighted Logic:** The app utilizes the JavaScript `.reduce()` method to calculate total XP by iterating through the task array and assigning values based on priority strings.
+2. **Persistence Layer:** `useEffect` hooks sync the application state with the browser's `localStorage`, ensuring zero data loss across sessions.
+3. **UI/UX:** Utilizes conditional rendering for seamless navigation between the Landing Page, Dashboard, and Task Manager without page reloads.
+
+---
 
 ## 🛠️ Tech Stack
-
-### **Frontend**
-* **React.js:** Component-based UI architecture.
-* **Tailwind CSS:** Utility-first styling for responsive design.
-* **React Icons:** Scalable vector icons for enhanced UX.
-
-### **Data & Persistence (Pseudo-Backend)**
-* **Browser LocalStorage API:** Synchronous data persistence for offline-first capability.
-* **JSON Serialization:** Managing complex state-to-string data transformation.
-* **UUID:** Cryptographically strong unique identifier generation for task mapping.
-
-### **Deployment & DevOps**
-* **Vercel:** Automated CI/CD pipeline for hosting.
-* **Git/GitHub:** Version control and repository management.
+* **Frontend:** React.js (Hooks, State Management)
+* **Styling:** Tailwind CSS (Responsive Design, Transitions)
+* **Icons:** React Icons
+* **Build Tool:** Vite
+* **Deployment:** Vercel
