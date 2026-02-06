@@ -1,30 +1,25 @@
-# 🎓 ScholarStack
-**Bridging academic excellence and professional growth.**
+# ScholarStack 🚀
+**A Gamified Productivity Dashboard for High-Performance Students**
 
-ScholarStack is a specialized productivity tool designed for Computer Science students to balance 6th-semester academics with freelance SME (Subject Matter Expert) work.
+ScholarStack is a modern task management application built with **React** and **Vite**. Unlike a standard to-do list, it uses a **Weighted XP (Experience Points) System** to help students prioritize high-impact tasks and visualize their academic progress in real-time.
 
-[**🚀 View Live Demo**]https://scholar-stack-pi.vercel.app/
 
----
 
 ## ✨ Key Features
-* **SME Earnings Tracker:** Automatically calculates potential income based on completed tasks (₹150 per task).
-* **Smart Task Management:** Sort tasks by High, Medium, or Low priority.
-* **Data Persistence:** Uses Browser LocalStorage to ensure your tasks stay saved even after closing the tab.
-* **Responsive UI:** Fully styled with Tailwind CSS for a modern, professional look.
+* **Gamified Task Management:** Earn XP based on task priority (High: 50XP, Medium: 30XP, Low: 10XP).
+* **Dynamic Analytics:** A real-time progress bar that visualizes "Stack Completion" percentages.
+* **Smart Prioritization:** Categorize tasks to focus on what matters most.
+* **Persistent Storage:** Uses `localStorage` to ensure your tasks and XP stay saved even after a refresh.
+* **Responsive UI:** Clean, mobile-friendly design built with **Tailwind CSS**.
 
 ## 🛠️ Tech Stack
+* **Frontend:** React.js (Hooks, State Management)
+* **Styling:** Tailwind CSS (Responsive Design, Transitions)
+* **Icons:** React Icons
+* **Build Tool:** Vite
+* **Deployment:** Vercel
 
-### **Frontend**
-* **React.js:** Component-based UI architecture.
-* **Tailwind CSS:** Utility-first styling for responsive design.
-* **React Icons:** Scalable vector icons for enhanced UX.
-
-### **Data & Persistence (Pseudo-Backend)**
-* **Browser LocalStorage API:** Synchronous data persistence for offline-first capability.
-* **JSON Serialization:** Managing complex state-to-string data transformation.
-* **UUID:** Cryptographically strong unique identifier generation for task mapping.
-
-### **Deployment & DevOps**
-* **Vercel:** Automated CI/CD pipeline for hosting.
-* **Git/GitHub:** Version control and repository management.
+## 🚀 How It Works (Technical Breakdown)
+1.  **Weighted Logic:** The app utilizes the JavaScript `.reduce()` method to calculate total XP by iterating through the task array and assigning values based on priority strings.
+2.  **Persistence Layer:** `useEffect` hooks sync the application state with the browser's `localStorage`, ensuring zero data loss.
+3.  **UI/UX:** Conditional rendering is used to handle "Empty States," and CSS transitions provide smooth visual feedback on the progress bar.
