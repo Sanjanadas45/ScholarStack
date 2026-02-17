@@ -93,14 +93,13 @@ function App() {
 
     const xpValue = priority === "High" ? 50 : priority === "Medium" ? 30 : 10;
 
-    // Convert selection into a Timestamp
     let finalDueDate = null;
     if (deadline) {
         const now = new Date();
         if (deadline === "1h") finalDueDate = addHours(now, 1);
         if (deadline === "3h") finalDueDate = addHours(now, 3);
         if (deadline === "6h") finalDueDate = addHours(now, 6);
-        if (deadline === "today") finalDueDate = endOfDay(now); // Set to 11:59 PM
+        if (deadline === "today") finalDueDate = endOfDay(now);
         if (deadline === "1d") finalDueDate = addDays(now, 1);
         if (deadline === "3d") finalDueDate = addDays(now, 3);
         if (deadline === "1w") finalDueDate = addDays(now, 7);
@@ -229,7 +228,7 @@ function App() {
       toast.error("Error signing out");
     } else {
       toast.success("Signed out successfully! See you soon.");
-      setView("landing"); // <--- Add this to reset the view
+      setView("landing"); 
     }
   }
 };
@@ -277,7 +276,8 @@ function App() {
         onSignInClick={() => setShowModal(true)}
       />
 
-      <div className="mx-3 md:container md:mx-auto my-5 rounded-xl p-5 bg-violet-100 min-h-[80vh] md:w-[45%]">
+      {/* FIXED: Added better responsive width and padding to the main container */}
+      <div className="mx-2 sm:mx-auto my-5 rounded-xl p-4 sm:p-5 bg-violet-100 min-h-[80vh] md:w-[45%] lg:w-[35%] overflow-hidden">
         {/* --- 1. LANDING PAGE --- */}
         {view === "landing" && (
           <div className="landing-view flex flex-col items-center text-center p-4 animate-in fade-in duration-700">
@@ -391,7 +391,7 @@ function App() {
         {/* --- 3. YOUR TASKS --- */}
         {view === "tasks" && (
           <div className="tasks-view animate-in slide-in-from-right duration-500">
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-6 px-1">
               <h1 className="font-bold text-2xl text-violet-900">Your Stack</h1>
               <div className="bg-violet-800 text-white px-4 py-1 rounded-full text-xs font-bold">
                 {totalXP} XP
@@ -417,7 +417,7 @@ function App() {
                 <select
                   value={deadline}
                   onChange={(e) => setDeadline(e.target.value)}
-                  className="bg-violet-50 p-2 rounded-lg text-sm text-gray-600 outline-none focus:ring-1 focus:ring-violet-400"
+                  className="bg-violet-50 p-2 rounded-lg text-sm text-gray-600 outline-none focus:ring-1 focus:ring-violet-400 w-full"
                 >
                   <option value="">No Deadline</option>
                   <option value="1h">In 1 Hour</option>
@@ -430,11 +430,12 @@ function App() {
                 </select>
               </div>
 
-              <div className="flex gap-2">
+              {/* FIXED: Using flex-col on small screens to prevent button overflow */}
+              <div className="flex flex-col sm:flex-row gap-2">
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
-                  className="flex-1 bg-violet-50 p-2 rounded-lg text-sm"
+                  className="w-full flex-1 bg-violet-50 p-2 rounded-lg text-sm outline-none"
                 >
                   <option value="High">🔥 High Priority (50 XP)</option>
                   <option value="Medium">⚡ Medium Priority (30 XP)</option>
@@ -443,7 +444,7 @@ function App() {
                 <button
                   type="submit"
                   disabled={todo.length < 3}
-                  className="bg-violet-800 text-white px-6 py-2 rounded-lg font-bold disabled:bg-violet-300"
+                  className="w-full sm:w-auto bg-violet-800 text-white px-6 py-2 rounded-lg font-bold disabled:bg-violet-300 transition-all whitespace-nowrap active:scale-95"
                 >
                   Add
                 </button>
@@ -474,17 +475,17 @@ function App() {
                 />
                 <label
                   htmlFor="showFinished"
-                  className="text-sm text-gray-600 cursor-pointer font-semibold"
+                  className="text-[11px] sm:text-sm text-gray-600 cursor-pointer font-semibold"
                 >
-                  Show Finished Tasks
+                  Show Finished
                 </label>
               </div>
               {completedCount > 0 && (
                 <button
                   onClick={handleClearFinished}
-                  className="text-xs bg-red-100 text-red-600 px-3 py-1 rounded-full font-bold hover:bg-red-200 shadow-sm"
+                  className="text-[10px] sm:text-xs bg-red-100 text-red-600 px-3 py-1 rounded-full font-bold hover:bg-red-200 shadow-sm whitespace-nowrap"
                 >
-                  Clear All Done
+                  Clear Done
                 </button>
               )}
             </div>
@@ -503,13 +504,13 @@ function App() {
                     key={item.id}
                     className={`flex justify-between p-4 bg-white rounded-xl shadow-sm border-l-4 ${item.priority === "High" ? "border-red-500" : "border-violet-400"} ${item.isCompleted ? "opacity-40" : ""}`}
                   >
-                    <div className="flex gap-4 items-center flex-1 mr-4">
+                    <div className="flex gap-4 items-center flex-1 mr-4 overflow-hidden">
                       <input
                         name={item.id}
                         onChange={handleCheckbox}
                         type="checkbox"
                         checked={item.isCompleted}
-                        className="accent-violet-600 w-4 h-4"
+                        className="accent-violet-600 w-4 h-4 flex-shrink-0"
                       />
 
                       {editingId === item.id ? (
@@ -524,13 +525,13 @@ function App() {
                           }
                         />
                       ) : (
-                        <div className="flex flex-col">
+                        <div className="flex flex-col overflow-hidden">
                           <span
-                            className={
+                            className={`truncate ${
                               item.isCompleted
                                 ? "line-through text-gray-400"
                                 : "font-medium text-gray-800"
-                            }
+                            }`}
                           >
                             {item.todo}
                           </span>
@@ -539,7 +540,7 @@ function App() {
                       )}
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-shrink-0">
                       {!item.isCompleted && (
                         <button
                           onClick={() => handleEdit(item)}
