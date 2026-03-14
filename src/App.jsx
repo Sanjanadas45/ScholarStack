@@ -174,17 +174,26 @@ function App() {
 
     const newStatus = !itemToToggle.isCompleted;
 
+    // 1. OPTIMISTIC UPDATE: Update UI immediately so it feels fast
+    setTodos((prev) =>
+      prev.map((item) =>
+        item.id == id ? { ...item, isCompleted: newStatus } : item
+      )
+    );
+
+    // 2. PERSISTENCE: Save to Supabase
     const { error } = await supabase
       .from("tasks")
       .update({ is_completed: newStatus })
       .eq("id", id);
 
-    if (error) toast.error("Update failed");
-    else {
+    if (error) {
+      toast.error("Sync failed. Reverting change...");
+      // 3. ROLLBACK: If the database update fails, revert the UI
       setTodos((prev) =>
         prev.map((item) =>
-          item.id == id ? { ...item, isCompleted: newStatus } : item,
-        ),
+          item.id == id ? { ...item, isCompleted: !newStatus } : item
+        )
       );
     }
   };
